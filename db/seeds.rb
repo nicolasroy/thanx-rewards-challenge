@@ -21,7 +21,11 @@ User.find_or_create_by!(email_address: "alex@thanx.com") do |u|
   u.password = "password"
 end
 
-User.find_or_create_by!(email_address: "charlie@thanx.com") do |u|
+charlie = User.find_or_create_by!(email_address: "charlie@thanx.com") do |u|
   u.name = "Charlie User"
   u.password = "password"
 end
+
+charlie.earnings.create! amount: 3
+charlie.earnings.create! amount: 100
+charlie.redemptions.create! amount: -50

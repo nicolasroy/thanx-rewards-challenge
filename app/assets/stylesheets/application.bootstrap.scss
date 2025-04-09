@@ -1,0 +1,9 @@
+// Enable negative margins
+$enable-negative-margins: true;
+
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+
+a.active {
+  @extend .fw-bold;
+}

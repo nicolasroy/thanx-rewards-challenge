@@ -22,6 +22,27 @@
   </head>
 
   <body>
+    <header class="pt-3 px-3 pb-2 text-bg-dark">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="h3 mt-n2 d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <strong class="text-bg-light rounded-top rounded-start " style="padding: 2px;">VIP</strong>
+            <span class="ms-1">Club</span>
+          </a>
+
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 ms-4 justify-content-center mb-md-0">
+            <li><%= active_link_to "Rewards", rewards_path, class: "nav-link px-2 text-white" %></li>
+          </ul>
+
+          <div class="me-2">Balance: <strong><%= pluralize(number_to_human(Current.user.balance), 'point') %></strong></div>
+
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle border border-dark-subtle">
+        </div>
+      </div>
+    </header>
+
+    <main>
     <%= yield %>
+    </main>
   </body>
 </html>
