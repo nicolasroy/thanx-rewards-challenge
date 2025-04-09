@@ -4,9 +4,8 @@ services:
     container_name: thanx_rewards_mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: thanx_rewards_challenge_development
-      MYSQL_USER: thanx_rewards_challenge
+      MYSQL_USER: root
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"

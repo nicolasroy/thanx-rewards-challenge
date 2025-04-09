@@ -14,13 +14,11 @@ default: &default
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: password
   host: <%= ENV.fetch("DB_HOST") { "127.0.0.1" } %>
 
 development:
   <<: *default
-  user: thanx_rewards_challenge
-  password: password
   database: thanx_rewards_challenge_development
 
 # Warning: The database defined as "test" will be erased and
@@ -28,8 +26,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  user: thanx_rewards_challenge
-  password: password
   database: thanx_rewards_challenge_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -57,7 +53,7 @@ production:
     <<: *default
     database: thanx_rewards_challenge_production
     username: thanx_rewards_challenge
-    password: <%= ENV["THANX_REWARDS_CHALLENGE_DATABASE_PASSWORD"] %>
+    password: <%= ENV["DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: thanx_rewards_challenge_production_cache

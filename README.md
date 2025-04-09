@@ -25,6 +25,10 @@ Things you may want to cover:
 
   The application is available at http://127.0.0.1:3000/
 
+- Development
+
+- Use `rubocop`!
+
 - How to run the test suite
 
 - Services (job queues, cache servers, search engines, etc.)
