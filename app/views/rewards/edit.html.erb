@@ -1,0 +1,12 @@
+<% content_for :title, "Editing reward" %>
+
+<h1>Editing reward</h1>
+
+<%= render "form", reward: @reward %>
+
+<br>
+
+<div>
+  <%= link_to "Show this reward", @reward %> |
+  <%= link_to "Back to rewards", rewards_path %>
+</div>
