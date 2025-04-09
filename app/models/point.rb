@@ -1,4 +1,4 @@
 class Point < ApplicationRecord
   belongs_to :user
-  # belongs_to :transaction, optional: true
+  belongs_to :order, optional: true
 end

@@ -1,0 +1,11 @@
+<div class="line-item" id="<%= dom_id(line_item) %>">
+  <div class="line-item-details">
+    <% render line_item.itemizable %>
+  </div>
+
+  <div class="line-item-meta">
+    <small class="text-muted">
+      Added <%= time_ago_in_words(line_item.created_at) %> ago
+    </small>
+  </div>
+</div>

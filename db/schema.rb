@@ -10,15 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_09_190959) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_09_231058) do
+  create_table "line_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.string "itemizable_type", null: false
+    t.bigint "itemizable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itemizable_type", "itemizable_id"], name: "index_line_items_on_itemizable"
+    t.index ["order_id"], name: "index_line_items_on_order_id"
+  end
+
+  create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "points", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "type"
     t.integer "amount"
     t.bigint "user_id"
-    t.bigint "transaction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["transaction_id"], name: "index_points_on_transaction_id"
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_points_on_order_id"
     t.index ["type", "user_id"], name: "index_points_on_type_and_user_id"
     t.index ["user_id"], name: "index_points_on_user_id"
   end
@@ -30,6 +47,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_09_190959) do
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_rewards_on_title", unique: true
   end
 
   create_table "sessions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

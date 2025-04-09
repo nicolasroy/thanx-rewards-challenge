@@ -1,0 +1,7 @@
+<div id="<%= dom_id order %>">
+  <p>
+    <strong>Line items:</strong>
+    <%= render collection: order.line_items, partial: "line_items/line_item" %>
+  </p>
+
+</div>

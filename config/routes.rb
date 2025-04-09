@@ -1,5 +1,6 @@
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
+  resources :orders, only: [ :index, :show, :new, :create ]
   resource :session
   resources :passwords, param: :token
   resources :rewards

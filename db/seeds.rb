@@ -26,6 +26,23 @@ charlie = User.find_or_create_by!(email_address: "charlie@thanx.com") do |u|
   u.password = "password"
 end
 
-charlie.earnings.create! amount: 3
+charlie.earnings.create! amount: 30
 charlie.earnings.create! amount: 100
 charlie.redemptions.create! amount: -50
+
+
+Reward.find_or_create_by!(title: "Fountain Drink") do |r|
+  r.points = 50
+end
+
+Reward.find_or_create_by!(title: "Small salad") do |r|
+  r.points = 100
+end
+
+Reward.find_or_create_by!(title: "Soup") do |r|
+  r.points = 150
+end
+
+Reward.find_or_create_by!(title: "Salmon Tartar") do |r|
+  r.points = 1200
+end

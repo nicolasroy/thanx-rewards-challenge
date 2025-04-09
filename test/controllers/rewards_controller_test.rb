@@ -19,7 +19,7 @@ class RewardsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reward" do
     assert_difference("Reward.count") do
-      post rewards_url, params: { reward: { content: @reward.content, image: @reward.image, points: @reward.points, title: @reward.title } }
+      post rewards_url, params: { reward: {  title: "a new reward", content: @reward.content, image: @reward.image, points: @reward.points } }
     end
 
     assert_redirected_to reward_url(Reward.last)

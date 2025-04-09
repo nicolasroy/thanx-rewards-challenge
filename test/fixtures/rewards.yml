@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  title: Reward One
   content: MyText
   image: MyString
   points: 1
 
 two:
-  title: MyString
+  title: Reward Two
   content: MyText
   image: MyString
   points: 1

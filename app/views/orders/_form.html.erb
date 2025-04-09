@@ -1,0 +1,91 @@
+<%= form_with(model: order) do |form| %>
+  <% if order.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="line_items">
+    <h3>Line Items</h3>
+    <%= form.fields_for :line_items do |line_item_form| %>
+      <div class="line_item">
+        <%= line_item_form.label :itemizable_type %>
+        <%= line_item_form.text_field :itemizable_type %>
+
+        <%= line_item_form.label :itemizable_id %>
+        <%= line_item_form.number_field :itemizable_id %>
+
+        <%= line_item_form.hidden_field :_destroy %>
+        <%= link_to "Remove", "#", class: "remove_line_item" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to "Add Line Item", "#", id: "add_line_item" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<template id="line_item_template">
+  <div class="line_item">
+    <label for="order_line_items_attributes_new_line_items_itemizable_type">Itemizable type</label>
+    <input type="text" name="order[line_items_attributes][new_line_items][itemizable_type]" id="order_line_items_attributes_new_line_items_itemizable_type">
+
+    <label for="order_line_items_attributes_new_line_items_itemizable_id">Itemizable</label>
+    <input type="number" name="order[line_items_attributes][new_line_items][itemizable_id]" id="order_line_items_attributes_new_line_items_itemizable_id">
+
+    <input type="hidden" name="order[line_items_attributes][new_line_items][_destroy]" value="0">
+    <a href="#" class="remove_line_item">Remove</a>
+  </div>
+</template>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const addLineItemButton = document.getElementById('add_line_item');
+  const lineItemsContainer = document.getElementById('line_items');
+  const template = document.getElementById('line_item_template');
+
+  addLineItemButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    const content = template.content.cloneNode(true);
+    const timestamp = new Date().getTime();
+
+    // Update the name attributes to use the timestamp
+    content.querySelectorAll('[name*="new_line_items"]').forEach(input => {
+      input.name = input.name.replace('new_line_items', timestamp);
+    });
+
+    // Update the id attributes to use the timestamp
+    content.querySelectorAll('[id*="new_line_items"]').forEach(input => {
+      input.id = input.id.replace('new_line_items', timestamp);
+    });
+
+    lineItemsContainer.appendChild(content);
+  });
+
+  lineItemsContainer.addEventListener('click', function(e) {
+    if (e.target.classList.contains('remove_line_item')) {
+      e.preventDefault();
+      const lineItem = e.target.closest('.line_item');
+      const destroyInput = lineItem.querySelector('input[name*="_destroy"]');
+
+      if (destroyInput) {
+        destroyInput.value = '1';
+        lineItem.style.display = 'none';
+      } else {
+        lineItem.remove();
+      }
+    }
+  });
+});
+</script>
