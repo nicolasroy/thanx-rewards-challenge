@@ -1,0 +1,2 @@
+class Redemption < Point
+end

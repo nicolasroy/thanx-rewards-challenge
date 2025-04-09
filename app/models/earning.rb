@@ -1,0 +1,2 @@
+class Earning < Point
+end
