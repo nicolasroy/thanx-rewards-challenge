@@ -10,7 +10,7 @@ class CreateOrder
       # Preserve integrity of the points balance during the transaction
       order.user.lock!
 
-      if insufficient_points_balance?
+      if insufficient_balance?
         context.fail!(error: "Points balance is insufficient")
         return
       end
@@ -30,7 +30,7 @@ class CreateOrder
     )
   end
 
-  def insufficient_points_balance?
+  def insufficient_balance?
     order.user.balance < order.total_points_redeeming
   end
 end
