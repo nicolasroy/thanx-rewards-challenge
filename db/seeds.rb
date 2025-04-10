@@ -17,18 +17,26 @@ end
 puts "Seeding rewards"
 drink = Reward.find_or_create_by!(title: "Fountain Drink") do |r|
   r.points = 50
+  r.image = "products/drink.jpg"
+  r.content = "Quench your thirst with our signature soft drink—refreshingly crisp and perfectly chilled to complement every meal!"
 end
 
-salad = Reward.find_or_create_by!(title: "Small salad") do |r|
+salad = Reward.find_or_create_by!(title: "Poke salad") do |r|
   r.points = 100
+  r.image = "products/poke-salad.jpg"
+  r.content = "Indulge in our signature Poke Salad—a refreshing blend of fresh vegetables, delicately cookedegg, and a zesty dressing, all toopped in a crispy seaweed!"
 end
 
-Reward.find_or_create_by!(title: "Soup") do |r|
+Reward.find_or_create_by!(title: "Ramen Soup") do |r|
   r.points = 150
+  r.image = "products/ramen-soup.jpg"
+  r.content = "Savor our Ramen Soup—a comforting blend of rich broth, noodles, and a variety of vegetables, with a tender meat of your choice!"
 end
 
-Reward.find_or_create_by!(title: "Salmon Tartar") do |r|
+Reward.find_or_create_by!(title: "Salmon Deluxe Roll") do |r|
   r.points = 1200
+  r.image = "products/salmon-deluxe-roll.jpg"
+  r.content = "Experience the delicacy of our Salmon Deluxe Roll — generously diced fresh salmon, expertly assembed with a slice of lemon, avocado and served atop a bed of sushi rice, topped with a touch of wasabi and soy sauce!"
 end
 
 puts "Seeding users"

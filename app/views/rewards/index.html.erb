@@ -5,12 +5,16 @@
 
   <div id="rewards">
     <% @rewards.each do |reward| %>
-      <%= render reward %>
-      <%= form_with url: orders_path, method: :post, class: "d-inline" do |f| %>
-        <%= f.hidden_field "order[line_items_attributes][][itemizable_type]", value: "Reward" %>
-        <%= f.hidden_field "order[line_items_attributes][][itemizable_id]", value: reward.id %>
-        <%= f.submit "Redeem", class: "btn btn-primary", disabled: Current.user.balance < reward.points %>
-      <% end %>
+      <div class="card w-25 rounded-5 text-center">
+        <div class="card-body">
+          <%= render reward %>
+          <%= form_with url: orders_path, method: :post, class: "d-inline" do |f| %>
+            <%= f.hidden_field "order[line_items_attributes][][itemizable_type]", value: "Reward" %>
+            <%= f.hidden_field "order[line_items_attributes][][itemizable_id]", value: reward.id %>
+            <%= f.submit "Redeem", class: "btn btn-primary", disabled: Current.user.balance < reward.points %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

@@ -43,10 +43,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_09_231058) do
   create_table "rewards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "image"
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["title"], name: "index_rewards_on_title", unique: true
   end
 
