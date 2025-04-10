@@ -3,15 +3,24 @@
 
   <h1 class="mb-2">Rewards</h1>
 
-  <div id="rewards">
+  <div id="Rewards" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));" class="d-grid gap-3 ">
     <% @rewards.each do |reward| %>
-      <div class="card w-25 rounded-5 text-center">
+      <div class="card rounded-5 text-center">
         <div class="card-body">
           <%= render reward %>
-          <%= form_with url: orders_path, method: :post, class: "d-inline" do |f| %>
+
+          <div class="progress mt-2" style="height: .5rem;" role="progressbar" aria-label="access" aria-valuenow="<%= Current.user.balance %>" aria-valuemin="0" aria-valuemax="<%= reward.points %>">
+            <div class="progress-bar" style="width: <%= [Current.user.balance / reward.points.to_f * 100, 100].min.round(0) %>%">
+            </div>
+          </div>
+          <% if Current.user.balance < reward.points %>
+            <small class="text-secondary"><%= pluralize(reward.points - Current.user.balance, "additional point") %> needed</small>
+          <% end %>
+
+          <%= form_with url: orders_path, method: :post do |f| %>
             <%= f.hidden_field "order[line_items_attributes][][itemizable_type]", value: "Reward" %>
             <%= f.hidden_field "order[line_items_attributes][][itemizable_id]", value: reward.id %>
-            <%= f.submit "Redeem", class: "btn btn-primary", disabled: Current.user.balance < reward.points %>
+            <%= f.submit "Redeem", class: "btn btn-primary mt-2", disabled: Current.user.balance < reward.points %>
           <% end %>
         </div>
       </div>

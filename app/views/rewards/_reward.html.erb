@@ -1,16 +1,16 @@
 <div id="<%= dom_id reward %>">
-  <div class="position-relative mx-auto" style="max-width: 175px;">
+  <div class="position-relative mx-auto" style="max-width: 150px;">
     <div class="rounded-circle overflow-hidden" style="width: 150px; height: 150px;">
       <%= image_tag image_url(reward.image), class: "w-100 h-100 object-fit-cover" %>
     </div>
-    <div class="fw-bold fs-4 position-absolute top-0 end-0">
+    <div class="fw-bold fs-4 position-absolute top-0 end-0 me-n4">
       <span class="badge text-bg-warning">
         <%= pluralize(reward.points, "point") %>
       </span>
     </div>
   </div>
 
-  <div class="fw-semibold fs-4">
+  <div class="fw-semibold fs-4 mt-1">
     <%= reward.title %>
   </div>
 
