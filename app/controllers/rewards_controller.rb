@@ -1,25 +1,20 @@
 class RewardsController < ApplicationController
   before_action :set_reward, only: %i[ show edit update destroy ]
 
-  # GET /rewards or /rewards.json
   def index
     @rewards = Reward.all
   end
 
-  # GET /rewards/1 or /rewards/1.json
   def show
   end
 
-  # GET /rewards/new
   def new
     @reward = Reward.new
   end
 
-  # GET /rewards/1/edit
   def edit
   end
 
-  # POST /rewards or /rewards.json
   def create
     @reward = Reward.new(reward_params)
 
@@ -34,7 +29,6 @@ class RewardsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /rewards/1 or /rewards/1.json
   def update
     respond_to do |format|
       if @reward.update(reward_params)
@@ -47,7 +41,6 @@ class RewardsController < ApplicationController
     end
   end
 
-  # DELETE /rewards/1 or /rewards/1.json
   def destroy
     @reward.destroy!
 
@@ -58,12 +51,10 @@ class RewardsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_reward
       @reward = Reward.find(params.expect(:id))
     end
 
-    # Only allow a list of trusted parameters through.
     def reward_params
       params.expect(reward: [ :title, :content, :image, :points ])
     end
