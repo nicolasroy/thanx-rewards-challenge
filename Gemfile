@@ -67,5 +67,3 @@ group :test do
   gem "shoulda-context"
   gem "mocha"
 end
-
-gem "interactor", "~> 3.1"

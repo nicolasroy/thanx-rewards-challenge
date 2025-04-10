@@ -46,6 +46,6 @@ end
 charlie.earnings.create! amount: 300
 charlie.earnings.create! amount: 100
 
-CreateOrder.call!(order: charlie.orders.build(line_items_attributes: [ itemizable: drink ]))
-CreateOrder.call!(order: charlie.orders.build(line_items_attributes: [ itemizable: salad ]))
-CreateOrder.call!(order: charlie.orders.build(line_items_attributes: [ itemizable: drink ]))
+charlie.orders.build(line_items_attributes: [ itemizable: drink ]).place_order!
+charlie.orders.build(line_items_attributes: [ itemizable: salad ]).place_order!
+charlie.orders.build(line_items_attributes: [ itemizable: drink ]).place_order!
