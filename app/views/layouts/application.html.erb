@@ -32,6 +32,7 @@
 
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 ms-4 justify-content-center mb-md-0">
             <li><%= active_link_to "Rewards", rewards_path, class: "nav-link px-2 text-white" %></li>
+            <li><%= active_link_to "Previous Redemptions", redemptions_path, class: "nav-link px-2 text-white" %></li>
           </ul>
 
           <div class="me-2">Balance: <strong><%= pluralize(number_to_human(Current.user.balance), 'point') %></strong></div>

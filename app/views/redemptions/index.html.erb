@@ -1,0 +1,35 @@
+<div class="container mx-auto py-4">
+  <h1 class="mb-2">Previous Redemptions</h1>
+
+  <% if @redemptions.any? %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Reward</th>
+            <th scope="col">Points Used</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @redemptions.each do |redemption| %>
+            <tr>
+              <td>
+                <%= redemption.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+              </td>
+              <td>
+                <%= redemption.order.line_items.select {|li| li.itemizable_type = "Reward" }.first.itemizable.title %>
+              </td>
+              <td>
+                <%= redemption.amount.abs %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  <% else %>
+    <div>
+      <p>You haven't redeemed any rewards yet.</p>
+      <%= link_to "Browse Rewards", rewards_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
