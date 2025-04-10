@@ -30,7 +30,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
           order: {
             line_items_attributes: [ {
               itemizable_type: "Reward",
-              itemizable_id: @reward.id
+              itemizable_id: @reward.id.to_s
             } ]
           }
         }
