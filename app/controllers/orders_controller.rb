@@ -23,11 +23,14 @@ class OrdersController < ApplicationController
   def create
     @order = Current.user.orders.build(order_params)
 
+    result = CreateOrder.call(order: @order)
+
     respond_to do |format|
-      if @order.save
+      if result.success?
         format.html { redirect_to @order, notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
       else
+        @order.errors.add(:base, result.error) if result.error
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
