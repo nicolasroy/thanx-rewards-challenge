@@ -27,17 +27,17 @@
   </head>
 
   <body>
-    <header class="pt-3 px-3 pb-2 text-bg-dark">
+    <header class="pt-3 px-3 pb-2 text-bg-dark" style="background: linear-gradient(180deg, #1e3c72 0%, #2a5298 100%);">
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="h3 mt-n2 d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            <strong class="text-bg-light rounded-top rounded-start " style="padding: 2px;">VIP</strong>
+          <a href="/" class="h3 mt-n2 d-flex align-items-center mb-2 mb-lg-0 text-warning text-decoration-none">
+            <strong class="text-bg-warning rounded-top rounded-start " style="padding: 2px;">VIP</strong>
             <span class="ms-1">Club</span>
           </a>
 
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 ms-4 justify-content-center mb-md-0">
-            <li><%= active_link_to "Rewards", rewards_path, class: "nav-link px-2 text-white" %></li>
-            <li><%= active_link_to "Previous Redemptions", redemptions_path, class: "nav-link px-2 text-white" %></li>
+            <li><%= active_link_to "Rewards", rewards_path, class: "nav-link px-2 pb-1 text-white" %></li>
+            <li><%= active_link_to "Previous Redemptions", redemptions_path, class: "nav-link px-2 pb-1 text-white" %></li>
           </ul>
 
           <div class="me-2">Balance: <strong><%= pluralize(number_to_human(Current.user.balance), 'point') %></strong></div>

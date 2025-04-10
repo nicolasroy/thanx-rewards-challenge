@@ -9,7 +9,9 @@ $enable-negative-margins: true;
 }
 
 a.active {
-  @extend .fw-bold;
+  @extend .border-2;
+  @extend .border-warning;
+  @extend .border-bottom;
 }
 
 .reward-image-wrapper {
