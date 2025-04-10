@@ -9,20 +9,6 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     sign_in(@user)
   end
 
-  context "GET #index" do
-    should "get index" do
-      get orders_url
-      assert_response :success
-    end
-  end
-
-  context "GET #new" do
-    should "get new" do
-      get new_order_url
-      assert_response :success
-    end
-  end
-
   context "POST #create" do
     should "create order with single line item" do
       assert_difference("Order.count") do
@@ -81,14 +67,8 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
         }
       end
 
-      assert_response :unprocessable_entity
-    end
-  end
-
-  context "GET #show" do
-    should "show order" do
-      get order_url(@order)
-      assert_response :success
+      assert_redirected_to root_path
+      assert_equal "Order could not be placed: Points balance is insufficient", flash[:alert]
     end
   end
 end

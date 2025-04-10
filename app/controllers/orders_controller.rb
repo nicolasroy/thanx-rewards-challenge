@@ -1,37 +1,18 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[ show ]
-
-  def index
-    @orders = Order.all
-  end
-
-  def show
-  end
-
-  def new
-    @order = Order.new
-  end
-
   def create
     @order = Current.user.orders.build(order_params)
 
     respond_to do |format|
       if @order.place_order
-        format.html { redirect_to @order, notice: "Order was successfully created." }
-        format.json { render :show, status: :created, location: @order }
+        format.html { redirect_back(fallback_location: root_path, notice: "Your order was successfully placed.") }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render :new, status: :unprocessable_entity }
+        format.html { redirect_back(fallback_location: root_path, alert: "Order could not be placed: #{@order.errors.full_messages.join(', ')}") }
       end
     end
   end
 
 
   private
-    def set_order
-      @order = Order.find(params[:id])
-    end
-
     def order_params
       params.require(:order).permit(
         line_items_attributes: [
