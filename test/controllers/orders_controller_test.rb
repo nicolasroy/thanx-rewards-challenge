@@ -22,7 +22,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
         }
       end
 
-      assert_redirected_to order_url(Order.last)
+      assert_redirected_to root_path
       assert_equal 1, Order.last.line_items.count
       assert_equal @reward, Order.last.line_items.first.itemizable
     end
@@ -47,7 +47,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
         end
       end
 
-      assert_redirected_to order_url(Order.last)
+      assert_redirected_to root_path
       assert_equal 2, Order.last.line_items.count
       assert_includes Order.last.line_items.map(&:itemizable), @reward
       assert_includes Order.last.line_items.map(&:itemizable), @reward2

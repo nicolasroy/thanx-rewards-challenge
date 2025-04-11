@@ -21,7 +21,7 @@ drink = Reward.find_or_create_by!(title: "Fountain Drink") do |r|
   r.content = "Quench your thirst with our signature soft drink—refreshingly crisp and perfectly chilled to complement every meal!"
 end
 
-salad = Reward.find_or_create_by!(title: "Poke salad") do |r|
+salad = Reward.find_or_create_by!(title: "Poke Salad") do |r|
   r.points = 100
   r.image = "products/poke-salad.jpg"
   r.content = "Indulge in our signature Poke Salad — a refreshing blend of fresh vegetables, delicately cookedegg, and a zesty dressing, all toopped in a crispy seaweed!"

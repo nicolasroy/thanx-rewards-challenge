@@ -3,11 +3,11 @@
 one:
   title: Reward One
   content: MyText
-  image: MyString
+  image: "products/drink.jpg"
   points: 1
 
 two:
   title: Reward Two
   content: MyText
-  image: MyString
+  image: "products/drink.jpg"
   points: 1

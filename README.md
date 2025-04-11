@@ -41,7 +41,9 @@
 
 - Get started by running `bin/setup` which will install dependencies and start the services.
 - Run `rails db:seed:replant` for a fresh set of sample data.
-- The application is available at http://127.0.0.1:3000/, You'll get automatically logged in while in a development environment.
+- Run `yarn watch:css` for compiling the css
+
+The application is available at http://127.0.0.1:3000/, You'll get automatically logged in while in a development environment.
 
 ## Development
 

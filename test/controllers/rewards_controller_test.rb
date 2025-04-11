@@ -5,6 +5,9 @@ class RewardsControllerTest < ActionDispatch::IntegrationTest
     @reward = rewards(:one)
     @user = users(:one)
     sign_in(@user)
+
+    # Stub image_path helper to return a placeholder path
+    ApplicationController.helpers.stubs(:image_path).returns("/placeholder.png")
   end
 
   context "GET #index" do
