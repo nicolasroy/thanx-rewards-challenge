@@ -36,13 +36,15 @@
           </a>
 
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 ms-4 justify-content-center mb-md-0">
-            <li><%= active_link_to "Rewards", rewards_path, class: "nav-link px-2 pb-1 text-white" %></li>
+            <li><%= active_link_to "Rewards", root_path, class: "nav-link px-2 pb-1 text-white", active: :exact %></li>
             <li><%= active_link_to "Previous Redemptions", redemptions_path, class: "nav-link px-2 pb-1 text-white" %></li>
           </ul>
 
           <div class="me-2">Balance: <strong><%= pluralize(number_to_human(Current.user.balance), 'point') %></strong></div>
 
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle border border-dark-subtle">
+          <div class="rounded-circle border border-dark-subtle overflow-hidden" style="width: 32px; height: 32px;">
+            <%= image_tag image_path("profile_picture.jpg"), class: "w-100 h-100 object-fit-cover" %>
+          </div>
         </div>
       </div>
     </header>

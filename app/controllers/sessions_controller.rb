@@ -4,6 +4,11 @@ class SessionsController < ApplicationController
   layout "unauthenticated", only: %i[ new create ]
 
   def new
+    if Rails.env.development? && params[:signed_out].blank?
+      # Automatically sign in demo user to simplify the evaluation of this app
+      start_new_session_for User.find_by(email_address: "charlie@thanx.com")
+      redirect_to root_url
+    end
   end
 
   def create
@@ -17,6 +22,6 @@ class SessionsController < ApplicationController
 
   def destroy
     terminate_session
-    redirect_to new_session_path
+    redirect_to new_session_path(signed_out: true)
   end
 end

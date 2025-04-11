@@ -24,13 +24,13 @@ end
 salad = Reward.find_or_create_by!(title: "Poke salad") do |r|
   r.points = 100
   r.image = "products/poke-salad.jpg"
-  r.content = "Indulge in our signature Poke Salad—a refreshing blend of fresh vegetables, delicately cookedegg, and a zesty dressing, all toopped in a crispy seaweed!"
+  r.content = "Indulge in our signature Poke Salad — a refreshing blend of fresh vegetables, delicately cookedegg, and a zesty dressing, all toopped in a crispy seaweed!"
 end
 
 Reward.find_or_create_by!(title: "Ramen Soup") do |r|
   r.points = 150
   r.image = "products/ramen-soup.jpg"
-  r.content = "Savor our Ramen Soup—a comforting blend of rich broth, noodles, and a variety of vegetables, with a tender meat of your choice!"
+  r.content = "Savor our Ramen Soup — a comforting blend of rich broth, noodles, and a variety of vegetables, with a tender meat of your choice!"
 end
 
 Reward.find_or_create_by!(title: "Salmon Deluxe Roll") do |r|
