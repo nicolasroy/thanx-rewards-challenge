@@ -25,6 +25,7 @@
 - Quantities per Line Item. To keep the scope small, only one reward is redeemed per order.
 - Tiered rewards.
 - Point expiration.
+- Performance optimization. I would add bullet and rubocop-performance. I would also add Pagy for paginating the redemptions history.
 
 ## Installation
 
