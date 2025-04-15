@@ -10,7 +10,7 @@
 - **Order**, contains one or many **LineItem**
 - **LineItem**, references a polymorphic itemizable which can be a **Reward**
 - **Reward**
-- **Point**, with can be either an **Earning** (account credit) or a **Redemption** (account debit). Optionally it can be originated by an **Order**.
+- **Point**, can be either an **Earning** (account credit) or a **Redemption** (account debit). Optionally it can be originated by an **Order**.
 
 ### Basic API
 
