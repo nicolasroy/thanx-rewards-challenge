@@ -1,5 +1,7 @@
 # Thanx Rewards Challenge by Nicolas Roy
 
+![image](https://github.com/user-attachments/assets/94e15f16-642e-4191-8f2d-19f5eac78b3b)
+
 ## Design
 
 ### Key Entities
